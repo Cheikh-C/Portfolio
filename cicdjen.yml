@@ -9,7 +9,7 @@ pipeline{
   stages {
     stage('Git Checkout') {
       steps { 
-        git branch: 'main or master', url: https...
+        git branch : 'master', url: 'https://github.com/docker-training/webapp.git'
         }
       }
     stage('OWASP') {
@@ -25,9 +25,9 @@ pipeline{
         }
        stage('Sonarqube Analysis') {
         steps {
-          sh ***$SCANNER_HOME/bin/sonar-scanner -Dsonar.projetName=Python-Webbap \
-          -Dsonar.projetKey=Python-Webapp***          
-          }
+          sh '''$SCANNER_HOME/bin/sonar-scanner -Dsonar.projetName=Python-Webbap \
+          -Dsonar.projetKey=Python-Webapp'''          
         }
       }
-      
+    }  
+  } 
